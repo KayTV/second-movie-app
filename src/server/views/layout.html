@@ -30,8 +30,9 @@
                 <li><a href="#">Page 1-3</a></li>
               </ul>
             </li>
-            <li><a href="ratings.html">Ratings</a></li>
+            {% if user %}
             <li><a href="my_movies.html">My Movies</a></li>
+            {% endif %}
           </ul>
         <ul class="nav navbar-nav navbar-right">
           {% if user %}
