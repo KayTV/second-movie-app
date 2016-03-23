@@ -3,6 +3,9 @@ var router = express.Router();
 var knex = require('../../../db/knex');
 var passport = require('../lib/auth');
 var helpers = require('../lib/helpers');
+function movie_app_two() {
+  return knex('movies');
+}
 
 
 router.get('/', function(req, res, next) {
@@ -76,6 +79,32 @@ router.get('/logout', function(req, res, next) {
 
 router.get('/movie_search', function(req, res, next) {
   res.render('movie_search', { user: req.user });
+})
+
+router.post('/movie_search', function(req, res, next) {
+  movie_app_two().insert({
+    title: req.body.Title,
+    director: req.body.Director,
+    poster: req.body.Poster,
+    actors: req.body.Actors,
+    genre: req.body.Genre,
+    rated: req.body.Rated,
+    released_date: req.body.Released,
+    plot: req.body.Plot,
+    user_id: req.user.id
+  }, 'id').then(function(result){
+    res.redirect('/movie_search')
+  })
+  .catch(function(err){
+    console.log(err)
+  })
+})
+
+router.get('/my_movies', function(req, res, next) {
+  movie_app_two().select().where('user_id', req.user.id)
+  .then(function(movies){
+    res.render('my_movies', { user: req.user, movies: movies });
+  })
 })
 
 module.exports = router;

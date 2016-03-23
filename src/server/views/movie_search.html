@@ -13,7 +13,10 @@
     </header>
     <center><section>
       <input type="text" id='title' placeholder="Search By Movie Title"><br>
-      <button id='call' type="submit">Search</button><br>
+      <button id='call' type="submit">Search</button>
+      {% if user %}
+      <button type='submit' id='saveMovie'>Save Movie</button>
+      {% endif %}
       <div id='results' class='results'></div>
     </section></center>
 

@@ -21,9 +21,17 @@ $(document).on('ready', function() {
       $("#results").append("<h4>Actors: "+data.Actors+"</h4>");
       $("#results").append("<h5>Genre: "+data.Genre+", Rated: "+data.Rated+", Released: "+data.Released+"</h5>");
       $("#results").append("<h4><strong>Plot: </strong>"+data.Plot+"</h4>");
-      $("#results").append("<button type=submit id=saveMovie>Save Movie</button>");
+      // $("#results").append("<button type=submit id=saveMovie>Save Movie</button>");
       $("#title").val('');
       $("#saveMovie").on("click", function(){
+        $.ajax({
+          method: "POST",
+          url: '/movie_search',
+          data: movie,
+          success: function(response) {
+            console.log(response);
+          }
+        })
         // movies.push(movie);
         // localStorage.setItem('movies', JSON.stringify(movies));
         // $("#saveMovie").hide("");
