@@ -107,4 +107,10 @@ router.get('/my_movies', function(req, res, next) {
   })
 })
 
+router.get('/showpage/:id', function(req, res, next) {
+  movie_app_two().where('id', req.params.id).first().then(function(movie){
+    res.render('showpage', {user: req.user, movie: movie});
+  });
+})
+
 module.exports = router;

@@ -12,7 +12,7 @@
     {% for movie in movies %}
     <div class="col-xs-3">
       <h3>{{movie.title}}</h3>
-      <button><img src="{{movie.poster}}"></button>
+      <button><a href="/showpage/{{movie.id}}"><img src="{{movie.poster}}"></a></button>
     </div>
 
     {% endfor %}
