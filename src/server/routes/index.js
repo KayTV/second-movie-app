@@ -74,4 +74,8 @@ router.get('/logout', function(req, res, next) {
   res.redirect('/');
 });
 
+router.get('/movie_search', function(req, res, next) {
+  res.render('movie_search', { user: req.user });
+})
+
 module.exports = router;

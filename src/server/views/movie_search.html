@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <header>
+      <h1>Movie Database</h1>
+      <h3>What's Your Favorite Movie?</h3>
+    </header>
+    <center><section>
+      <input type="text" id='title' placeholder="Search By Movie Title"><br>
+      <button id='call' type="submit">Search</button><br>
+      <div id='results' class='results'></div>
+    </section></center>
+
+  </div>
+
+{% endblock %}
