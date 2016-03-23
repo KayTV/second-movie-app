@@ -5,11 +5,15 @@
 
 {% block content %}
 
-  <div class="container">
-
+  <div class="container myMovie">
+    <header>
+      <h1>My Movies</h1>
+    </header>
     {% for movie in movies %}
-      <img src="{{movie.poster}}">
+    <div class="col-xs-3">
       <h3>{{movie.title}}</h3>
+      <button><img src="{{movie.poster}}"></button>
+    </div>
 
     {% endfor %}
 

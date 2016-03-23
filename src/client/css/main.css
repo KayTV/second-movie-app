@@ -7,6 +7,10 @@ body {
     text-align: center;
 }
 
+header {
+  margin-top: 80px;
+}
+
 .navbar {
     margin-bottom: 0;
     background-color: #2d2d30;
@@ -100,4 +104,60 @@ body {
 	  border-top-left-radius: 0;
 	  border-top-right-radius: 0;
 	}
+}
+
+.carousel-inner img {
+    -webkit-filter: grayscale(80%);
+    filter: grayscale(80%);
+    height: 30%;
+    width: 30%;
+}
+
+.carousel-control {
+  color: black;
+}
+
+.wait-img {
+  -webkit-filter: grayscale(80%);
+  filter: grayscale(80%);
+  height: 50%;
+  width: 50%;
+}
+
+.results {
+  text-align: center;
+  text-shadow: 1px 1px grey;
+  margin-left: 140px;
+  margin-right: 140px;
+}
+
+/*input[type = text] {
+  border: 1px solid #999;
+  border-radius: 10px;
+  width: 450px;
+  font-size: 20px;
+  margin: 5px;
+  text-align: center;
+}*/
+
+button[type = submit] {
+  border: 1px solid #999;
+  border-radius: 10px;
+  width: 200px;
+  font-size: 20px;
+  color: grey;
+  background-color: black;
+  margin: 5px;
+}
+
+.myMovie img {
+  height: 300px;
+  width: 200px;
+}
+
+.myMovie button {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+  /*margin-bottom: 30px;*/
 }
