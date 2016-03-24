@@ -9,22 +9,25 @@ body {
 
 header {
   margin-top: 80px;
+  text-shadow: 2px 2px grey;
 }
 
 .navbar {
     margin-bottom: 0;
     background-color: #2d2d30;
     border: 0;
-    font-size: 11px !important;
-    letter-spacing: 4px;
+    font-size: 13px !important;
     opacity:0.9;
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
+    padding-right: 5px;
 }
+
 .navbar li a, .navbar .navbar-brand {
     color: #d5d5d5 !important;
 }
+
 .navbar-nav li a:hover {
     color: #fff !important;
 }
@@ -105,18 +108,20 @@ header {
   margin-right: 140px;
 }
 
-/*input[type = text] {
+#title {
   border: 1px solid #999;
   border-radius: 10px;
   width: 450px;
   font-size: 20px;
   margin: 5px;
   text-align: center;
-}*/
+}
 
 button[type = submit] {
   color: grey;
   background-color: black;
+  font-size: 20px;
+  margin: 5px;
 }
 
 .myMovie img {
