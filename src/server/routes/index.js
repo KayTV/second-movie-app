@@ -113,4 +113,11 @@ router.get('/showpage/:id', function(req, res, next) {
   });
 })
 
+router.post('/showpage/:id', function(req, res, next){
+  console.log('delete');
+  movie_app_two().where('id', req.params.id).del().then(function(result){
+    res.redirect('/my_movies')
+  });
+});
+
 module.exports = router;
