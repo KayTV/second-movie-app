@@ -9,6 +9,7 @@ var swig = require('swig');
 var session = require('express-session');
 var flash = require('connect-flash');
 var passport = require('./lib/auth');
+// var jqueryBarRating = require('jquery-bar-rating')
 
 
 // *** routes *** //

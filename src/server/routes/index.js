@@ -91,7 +91,8 @@ router.post('/movie_search', function(req, res, next) {
     rated: req.body.Rated,
     released_date: req.body.Released,
     plot: req.body.Plot,
-    user_id: req.user.id
+    user_id: req.user.id,
+    rating: 1
   }, 'id').then(function(result){
     res.redirect('/movie_search')
   })
@@ -99,6 +100,22 @@ router.post('/movie_search', function(req, res, next) {
     console.log(err)
   })
 })
+
+router.post('/update-rating', function(req, res, next){
+  console.log(req.body);
+  movie_app_two().where('id', req.params.id).update({
+    director: req.body.director,
+    title: req.body.title,
+    rating: req.body.rating,
+    description: req.body.description
+  }).then(function() {
+    res.status(200);
+    res.redirect('/movies');
+  })
+  .catch(function (err) {
+    console.log(err)
+  })
+});
 
 router.get('/my_movies', function(req, res, next) {
   movie_app_two().select().where('user_id', req.user.id)
