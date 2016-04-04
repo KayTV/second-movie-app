@@ -17,7 +17,7 @@ angular.module('app')
       console.log('deleted movie');
       $location.path('/my_movies');
     })
-    window.location = "/my_movies"
+    window.location = "/#/my_movies"
   }
 
 }]);
