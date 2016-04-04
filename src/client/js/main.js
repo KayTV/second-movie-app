@@ -3,7 +3,6 @@
 $(document).on('ready', function() {
   console.log('sanity check!');
 
-
   $("#call").on("click", function(){
     var title = $("#title").val();
     var plot = $("#plot").val();
@@ -44,20 +43,20 @@ $(document).on('ready', function() {
   })
 
 })
-$(function() {
-    $('.ratings').barrating({
-      theme: 'fontawesome-stars',
-      initialRating: $(this).attr("data-initial-rating"),
-      onSelect: function(value, text, event) {
-            $.ajax({
-              method: 'POST',
-              url: '/update-rating',
-              data: {
-                id: ,
-                rating: +value
-              }
-            })
-          }
-    });
- });
+// $(function() {
+//     $('.ratings').barrating({
+//       theme: 'fontawesome-stars',
+//       initialRating: $(this).attr("data-initial-rating"),
+//       onSelect: function(value, text, event) {
+//             $.ajax({
+//               method: 'POST',
+//               url: '/update-rating',
+//               data: {
+//                 id: ,
+//                 rating: +value
+//               }
+//             })
+//           }
+//     });
+//  });
 });

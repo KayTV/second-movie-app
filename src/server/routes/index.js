@@ -81,7 +81,8 @@ router.get('/movie_search', function(req, res, next) {
   res.render('movie_search', { user: req.user });
 })
 
-router.post('/movie_search', function(req, res, next) {
+router.post('/movie', function(req, res, next) {
+  console.log('hitting /movie');
   movie_app_two().insert({
     title: req.body.Title,
     director: req.body.Director,
@@ -94,10 +95,13 @@ router.post('/movie_search', function(req, res, next) {
     user_id: req.user.id,
     rating: 1
   }, 'id').then(function(result){
-    res.redirect('/movie_search')
+    res.json({
+      status: 200,
+      message: 'Succesfully saved '+req.body.Title
+    });
   })
   .catch(function(err){
-    console.log(err)
+    console.log('errorrrrrrrrrr', err)
   })
 })
 

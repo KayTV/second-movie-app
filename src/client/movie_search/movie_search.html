@@ -1,0 +1,21 @@
+<div class="container">
+
+  <header>
+    <h1>{{title}}</h1>
+    <h3>What's Your Favorite Movie?</h3>
+  </header>
+  <section>
+    <input type="text" ng-model="movieTitle" placeholder="Search By Movie Title"><br>
+    <button class="btn btn-md" ng-click="getOMDB()">Search</button>
+    <button class="btn btn-md" ng-click="saveMovie()">Save Movie</button>
+    <div id='results' class='results' ng-if="movie">
+      <h2>{{movie.Title}}</h2>
+      <h3>Director: {{movie.Director}}</h3>
+      <img ng-src="{{movie.Poster}}">
+      <h4>Actors: {{movie.Actors}}</h4>
+      <h5>Genre: {{movie.Genre}}, Rated: {{movie.Rated}}, Released: {{movie.Released}}</h5>
+      <h4><strong>Plot: </strong>{{movie.Plot}}</h4>
+    </div>
+  </section>
+
+</div>
