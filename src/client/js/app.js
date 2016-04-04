@@ -13,5 +13,9 @@ angular.module('app', ['ngRoute'])
         templateUrl: 'my_movies/my_movies.html',
         controller: 'MyMoviesController'
       })
+      .when('/showpage', {
+        templateUrl: 'showpage/showpage.html',
+        controller: 'ShowpageController'
+      })
       .otherwise({redirectTo: '/'});
   });

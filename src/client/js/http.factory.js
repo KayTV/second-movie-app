@@ -24,5 +24,12 @@ angular.module('app')
     });
   };
 
+  factory.getMovie = function() {
+    return $http({
+      method: 'GET',
+      url: '/showpage/'+movie.id
+    });
+  };
+
   return factory;
 }]);
