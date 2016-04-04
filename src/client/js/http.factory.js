@@ -1,6 +1,7 @@
 angular.module('app')
 .factory('httpFactory', ['$http', function($http){
   var factory = {};
+  var movieId = null;
 
   factory.getOMDB = function(title) {
     return $http({
@@ -24,12 +25,22 @@ angular.module('app')
     });
   };
 
-  factory.getMovie = function() {
+  factory.getMovie = function(id) {
     return $http({
       method: 'GET',
-      url: '/showpage/'+movie.id
+      url: '/showpage/'+id
     });
   };
+
+  factory.getCurrentMovie = function() {
+      return movieId;
+  }
+
+  factory.setCurrentMovie = function(id) {
+    movieId = id;
+    console.log('movieId', movieId);
+    return movieId;
+  }
 
   return factory;
 }]);

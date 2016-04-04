@@ -10,4 +10,12 @@ angular.module('app')
       });
   };
   activate();
+
+  $scope.setCurrentMovie = function(index) {
+    httpFactory.setCurrentMovie($scope.movies[index].id)
+    .then(function(response){
+      console.log(response);
+      // $scope.successMessage = 'Updated ' + $scope.movies[index].title;
+    });
+  };
 }]);
