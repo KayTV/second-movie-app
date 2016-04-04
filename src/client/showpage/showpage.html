@@ -12,7 +12,7 @@
     <h4>Genre: {{movie.genre}}, Rated: {{movie.rated}}, Released: {{movie.released_date}}</h4>
     <h4>{{movie.plot}}</h4>
     <form method="post">
-      <button class="btn btn-md">Delete Movie</button>
+      <button ng-click="deleteMovie(movie.id)" class="btn btn-md">Delete Movie</button>
       <button class="btn btn-md">Add Comment</button>
     </form>
   </div>

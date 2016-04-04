@@ -10,4 +10,13 @@ angular.module('app')
     });
   }
   activate();
+
+  $scope.deleteMovie = function(id) {
+    httpFactory.deleteMovie(id)
+    .then(function(response){
+      console.log('deleted movie');
+      $scope.movies.splice(index, 1);
+    })
+  };
+
 }]);

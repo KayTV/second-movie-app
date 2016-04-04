@@ -42,5 +42,12 @@ angular.module('app')
     return movieId;
   }
 
+  factory.deleteMovie = function(id) {
+    return $http({
+      method: 'DELETE',
+      url: '/showpage/'+id
+    });
+  }
+
   return factory;
 }]);
