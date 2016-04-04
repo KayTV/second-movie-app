@@ -9,5 +9,9 @@ angular.module('app', ['ngRoute'])
         templateUrl: 'movie_search/movie_search.html',
         controller: 'MovieSearchController'
       })
+      .when('/my_movies', {
+        templateUrl: 'my_movies/my_movies.html',
+        controller: 'MyMoviesController'
+      })
       .otherwise({redirectTo: '/'});
   });

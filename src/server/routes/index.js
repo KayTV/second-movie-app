@@ -83,16 +83,17 @@ router.get('/movie_search', function(req, res, next) {
 
 router.post('/movie', function(req, res, next) {
   console.log('hitting /movie');
+  console.log(req.body);
   movie_app_two().insert({
-    title: req.body.Title,
-    director: req.body.Director,
-    poster: req.body.Poster,
-    actors: req.body.Actors,
-    genre: req.body.Genre,
-    rated: req.body.Rated,
-    released_date: req.body.Released,
-    plot: req.body.Plot,
-    user_id: req.user.id,
+    title: req.body.movie.Title,
+    director: req.body.movie.Director,
+    poster: req.body.movie.Poster,
+    actors: req.body.movie.Actors,
+    genre: req.body.movie.Genre,
+    rated: req.body.movie.Rated,
+    released_date: req.body.movie.Released,
+    plot: req.body.movie.Plot,
+    user_id: 1,
     rating: 1
   }, 'id').then(function(result){
     res.json({
