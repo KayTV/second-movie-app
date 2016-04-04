@@ -2,9 +2,9 @@
   <header>
     <h1>{{title}}</h1>
   </header>
-  <div class="col-xs-3">
+  <div class="col-xs-3" ng-repeat="movie in movies">
     <h3>{{movie.title}}</h3>
-    <button><a href="/showpage/{{movie.id}}"><img src="{{movie.poster}}"></a></button>
+    <button><img ng-src="{{movie.poster}}"></button>
     <select class="ratings" data-movieid="{{movie.id}}" data-initial-rating="{{movie.rating}}">
       <option value="1">1</option>
       <option value="2">2</option>

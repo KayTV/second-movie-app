@@ -17,5 +17,12 @@ angular.module('app')
     });
   };
 
+  factory.getMovies = function() {
+    return $http({
+      method: 'GET',
+      url: '/my_movies'
+    });
+  };
+
   return factory;
 }]);

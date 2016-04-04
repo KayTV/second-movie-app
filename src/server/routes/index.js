@@ -123,9 +123,9 @@ router.post('/update-rating', function(req, res, next){
 });
 
 router.get('/my_movies', function(req, res, next) {
-  movie_app_two().select().where('user_id', req.user.id)
+  movie_app_two().select()
   .then(function(movies){
-    res.render('my_movies', { user: req.user, movies: movies });
+    res.json(movies);
   })
 })
 
