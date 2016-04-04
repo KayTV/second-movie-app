@@ -5,7 +5,7 @@
   <input ng-model="sort" class="form-control" style="width: 50%; margin-left: 25%;" placeholder="Search Movies"></input>
   <div class="col-xs-3" ng-repeat="movie in movies | filter: sort">
     <h3>{{movie.title}}</h3>
-    <button ng-click="setCurrentMovie(movie.id)"><img ng-src="{{movie.poster}}"></button>
+    <button><a ng-click="setCurrentMovie(movie.id)" href="/#/showpage"><img ng-src="{{movie.poster}}"></a></button>
     <select class="ratings" data-movieid="{{movie.id}}" data-initial-rating="{{movie.rating}}">
       <option value="1">1</option>
       <option value="2">2</option>

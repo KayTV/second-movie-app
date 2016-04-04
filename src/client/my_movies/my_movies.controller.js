@@ -11,11 +11,9 @@ angular.module('app')
   };
   activate();
 
-  $scope.setCurrentMovie = function(index) {
-    httpFactory.setCurrentMovie($scope.movies[index].id)
-    .then(function(response){
-      console.log(response);
+  $scope.setCurrentMovie = function(id) {
+    httpFactory.setCurrentMovie(id)
+      console.log(id);
       // $scope.successMessage = 'Updated ' + $scope.movies[index].title;
-    });
   };
 }]);
