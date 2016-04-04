@@ -2,7 +2,15 @@
   <header>
     <h1>{{title}}</h1>
   </header>
-  <div class="col-xs-3" ng-repeat="movie in movies">
+  <select ng-model="sort" class="form-control" style="width: 50%; margin-left: 25%;">
+    <option value="Comedy">Comedy</option>
+    <option value="Romance">Romance</option>
+    <option value="Horror">Horror</option>
+    <option value="Action">Action</option>
+    <option value="Adventure">Adventure</option>
+    <option value="Animation">Animation</option>
+  </select>
+  <div class="col-xs-3" ng-repeat="movie in movies | filter: sort">
     <h3>{{movie.title}}</h3>
     <button><img ng-src="{{movie.poster}}"></button>
     <select class="ratings" data-movieid="{{movie.id}}" data-initial-rating="{{movie.rating}}">
