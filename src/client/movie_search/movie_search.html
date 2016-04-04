@@ -6,8 +6,8 @@
   </header>
   <section>
     <input type="text" ng-model="movieTitle" placeholder="Search By Movie Title"><br>
-    <button class="btn btn-md" ng-click="getOMDB()">Search</button>
-    <button class="btn btn-md" ng-click="saveMovie()">Save Movie</button>
+    <button class="btn btn-md submitbutton" ng-click="getOMDB()">Search</button>
+    <button class="btn btn-md submitbutton" ng-click="saveMovie()">Save Movie</button>
     <div id='results' class='results' ng-if="movie">
       <h2>{{movie.Title}}</h2>
       <h3>Director: {{movie.Director}}</h3>

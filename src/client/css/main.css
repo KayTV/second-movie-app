@@ -116,7 +116,7 @@ header {
   text-align: center;
 }
 
-button[type = submit] {
+.submitbutton {
   color: grey;
   background-color: black;
   font-size: 20px;
