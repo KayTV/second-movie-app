@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('ShowpageController', ['$scope', 'httpFactory', function($scope, httpFactory){
+.controller('ShowpageController', ['$scope', '$location', 'httpFactory', function($scope, $location, httpFactory){
   $scope.title = 'test';
   function activate() {
     var id = httpFactory.getCurrentMovie();
@@ -15,8 +15,9 @@ angular.module('app')
     httpFactory.deleteMovie(id)
     .then(function(response){
       console.log('deleted movie');
-      $scope.movies.splice(index, 1);
+      $location.path('/my_movies');
     })
-  };
+    window.location = "/my_movies"
+  }
 
 }]);
