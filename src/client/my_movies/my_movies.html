@@ -11,7 +11,7 @@
       <option value="rating">Rating</option>
     </select>
   </div>
-  <div class="col-xs-3" ng-repeat="movie in movies | filter: sort | orderBy : rate : reverse">
+  <div class="col-xs-3" ng-repeat="movie in movies | filter: sort | orderBy : rate : true">
     <h3>{{movie.title}}</h3>
     <button><a ng-click="setCurrentMovie(movie.id)" href="/#/showpage"><img ng-src="{{movie.poster}}"></a></button>
     <div star-rating ng-model="movie.rating" on-rating-select="rateFunction($index)"></div>
