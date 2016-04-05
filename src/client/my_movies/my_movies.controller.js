@@ -18,7 +18,7 @@ angular.module('app')
   };
 
   $scope.rateFunction = function(index) {
-    console.log('rating', $scope.movies[index].rating);
+    console.log('rating', $scope.movies[index].rating, $scope.movies[index]);
     httpFactory.updateRating($scope.movies[index].id, $scope.movies[index].rating)
     .then(function(response){
       console.log(response);
