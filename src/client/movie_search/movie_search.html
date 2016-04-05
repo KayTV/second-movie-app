@@ -8,9 +8,8 @@
     <input type="text" ng-model="movieTitle" class="form-control" style="width: 50%; margin-left: 25%;" placeholder="Search By Movie Title"><br>
     <button class="btn btn-md submitbutton" ng-click="getOMDB()">Search</button>
     <button class="btn btn-md submitbutton" ng-click="saveMovie(); showDiv=true">Save Movie</button>
-    <!-- <button class="btn btn-primary" ng-click="showDiv=true" ng-show="!showDiv">Show Div</button> -->
     <div ng-show="showDiv">
-      Movie was saved
+      <h5>Movie was saved to database!</h5>
     </div>
     <div id='results' class='results' ng-if="movie">
       <h2>{{movie.Title}}</h2>

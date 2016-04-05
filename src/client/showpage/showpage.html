@@ -10,9 +10,10 @@
     <h3>{{movie.actors}}</h3>
     <h4>Genre: {{movie.genre}}, Rated: {{movie.rated}}, Released: {{movie.released_date}}</h4>
     <h4>{{movie.plot}}</h4>
+    <div star-rating ng-model="movie.rating"></div>
     <form method="post">
-      <button ng-click="deleteMovie(movie.id)" class="btn btn-md">Delete Movie</button>
-      <button class="btn btn-md">Add Comment</button>
+      <button ng-click="deleteMovie(movie.id)" class="btn btn-md submitbutton">Delete Movie</button>
+      <button class="btn btn-md submitbutton">Add Comment</button>
     </form>
   </div>
 
