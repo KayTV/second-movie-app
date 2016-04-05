@@ -49,5 +49,13 @@ angular.module('app')
     });
   }
 
+  factory.updateRating = function(id, rating) {
+    return $http({
+      method: 'PUT',
+      url: '/update-rating/'+id,
+      data: {rating: rating}
+    });
+  }
+
   return factory;
 }]);

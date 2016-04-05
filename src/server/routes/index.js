@@ -106,16 +106,13 @@ router.post('/movie', function(req, res, next) {
   })
 })
 
-router.post('/update-rating', function(req, res, next){
-  console.log(req.body);
+router.put('/update-rating/:id', function(req, res, next){
+  console.log('body', req.body);
   movie_app_two().where('id', req.params.id).update({
-    director: req.body.director,
-    title: req.body.title,
-    rating: req.body.rating,
-    description: req.body.description
-  }).then(function() {
+    rating: req.body.rating
+  }).then(function(rating) {
     res.status(200);
-    res.redirect('/movies');
+    res.json(rating)
   })
   .catch(function (err) {
     console.log(err)

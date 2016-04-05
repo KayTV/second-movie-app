@@ -8,6 +8,7 @@ angular.module('app')
       console.log(response);
       $scope.movie = response.data;
       $scope.movieTitle = '';
+      $scope.showDiv = false;
     })
   }
 
