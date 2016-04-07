@@ -12,9 +12,11 @@
     </select>
   </div>
   <div class="col-xs-3" ng-repeat="movie in movies | filter: sort | orderBy : rate">
-    <h3>{{movie.title}}</h3>
-    <button><a ng-click="setCurrentMovie(movie.id)" href="/#/showpage"><img ng-src="{{movie.poster}}"></a></button>
-    <div star-rating ng-model="movie.rating" on-rating-select="rateFunction($index)"></div>
+    <div style="height: 400px">
+      <h3 style="text-shadow: 1px 1px white;">{{movie.title}}</h3>
+      <button><a ng-click="setCurrentMovie(movie.id)" href="/#/showpage"><img ng-src="{{movie.poster}}"></a></button>
+      <div star-rating ng-model="movie.rating" on-rating-select="rateFunction($index)"></div>
+    </div>
   </div>
 
 </div>

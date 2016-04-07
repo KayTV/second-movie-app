@@ -8,10 +8,6 @@ function movie_app_two() {
 }
 
 
-router.get('/', function(req, res, next) {
-  res.render('index', { user: req.user });
-});
-
 router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Marketing' });
 });
@@ -20,7 +16,6 @@ router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user) {
     if (err) {
       res.render('login', {title: 'Error', errors: ['Email and/or password incorrect']})
-      // return next(err);
     } else {
       req.logIn(user, function(err) {
         if (err) {
@@ -77,10 +72,7 @@ router.get('/logout', function(req, res, next) {
   res.redirect('/');
 });
 
-router.get('/movie_search', function(req, res, next) {
-  res.render('movie_search', { user: req.user });
-})
-
+//save movie to database
 router.post('/movie', function(req, res, next) {
   console.log('hitting /movie');
   console.log(req.body);
@@ -106,6 +98,7 @@ router.post('/movie', function(req, res, next) {
   })
 })
 
+//update movie rating
 router.put('/update-rating/:id', function(req, res, next){
   console.log('body', req.body);
   movie_app_two().where('id', req.params.id).update({
@@ -119,6 +112,7 @@ router.put('/update-rating/:id', function(req, res, next){
   })
 });
 
+//get all the movies
 router.get('/my_movies', function(req, res, next) {
   movie_app_two().select()
   .then(function(movies){
@@ -126,12 +120,14 @@ router.get('/my_movies', function(req, res, next) {
   })
 })
 
+//get a single movie
 router.get('/showpage/:id', function(req, res, next) {
   movie_app_two().where('id', req.params.id).first().then(function(movie){
     res.json(movie);
   });
 })
 
+//delete a single movie 
 router.delete('/showpage/:id', function(req, res, next){
   movie_app_two().where('id', req.params.id).del()
   .then(function(result){

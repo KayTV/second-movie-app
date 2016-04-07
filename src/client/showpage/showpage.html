@@ -7,8 +7,9 @@
   </div>
   <div class="col-xs-6" style="text-shadow: 1px 1px white;">
     <h2>Director: {{movie.director}}</h2>
-    <h3>{{movie.actors}}</h3>
+    <h3>Actors: {{movie.actors}}</h3>
     <h4>Genre: {{movie.genre}}, Rated: {{movie.rated}}, Released: {{movie.released_date}}</h4>
+    <h3>Plot: </h3>
     <h4>{{movie.plot}}</h4>
     <div star-rating ng-model="movie.rating"></div>
     <form method="post">

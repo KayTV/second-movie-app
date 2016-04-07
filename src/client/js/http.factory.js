@@ -7,6 +7,7 @@ angular.module('app')
     return $http({
       method: 'GET',
       url: 'https://www.omdbapi.com/?t='+title
+      // url: 'https://www.omdbapi.com/?s='+title ----the 's' gets you multiple movies 
     });
   };
 
