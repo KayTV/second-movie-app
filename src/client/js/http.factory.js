@@ -7,7 +7,7 @@ angular.module('app')
     return $http({
       method: 'GET',
       url: 'https://www.omdbapi.com/?t='+title
-      // url: 'https://www.omdbapi.com/?s='+title ----the 's' gets you multiple movies 
+      // url: 'https://www.omdbapi.com/?s='+title ----the 's' gets you multiple movies
     });
   };
 
@@ -51,6 +51,7 @@ angular.module('app')
   }
 
   factory.updateRating = function(id, rating) {
+    console.log('rating', rating);
     return $http({
       method: 'PUT',
       url: '/update-rating/'+id,
