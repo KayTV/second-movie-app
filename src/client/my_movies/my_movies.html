@@ -15,7 +15,7 @@
     <div style="height: 400px">
       <h3 style="text-shadow: 1px 1px white;">{{movie.title}}</h3>
       <button><a ng-click="setCurrentMovie(movie.id)" href="/#/showpage"><img ng-src="{{movie.poster}}"></a></button>
-      <div star-rating ng-model="movie.rating" on-rating-select="rateFunction()"></div>
+      <div star-rating ng-model="movie.rating" movie-id="{{movie.id}}"></div>
     </div>
   </div>
 

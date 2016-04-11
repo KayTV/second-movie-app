@@ -17,12 +17,12 @@ angular.module('app')
       // $scope.successMessage = 'Updated ' + $scope.movies[index].title;
   };
 
-  $scope.rateFunction = function() {
-    var movie = this.movie;
-    console.log(this);
-    httpFactory.updateRating(movie.id, movie.rating)
-    .then(function(response){
-      console.log(response);
-    })
-  };
+  // $scope.rateFunction = function() {
+  //   var movie = this.movie;
+  //   console.log(this);
+  //   httpFactory.updateRating(movie.id, movie.rating)
+  //   .then(function(response){
+  //     console.log(response);
+  //   })
+  // };
 }]);
