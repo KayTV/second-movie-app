@@ -23,7 +23,10 @@ angular.module('app', ['ngRoute'])
       })
       .when('/login', {
         templateUrl: 'login/login.html',
-        // controller: 'LoginController'
+        controller: 'LoginController'
+      })
+      .when('/logout', {
+      controller: 'LogoutController'
       })
       .otherwise({redirectTo: '/'});
   });
