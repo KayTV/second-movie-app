@@ -18,11 +18,11 @@ angular.module('app', ['ngRoute'])
         controller: 'ShowpageController'
       })
       .when('/register', {
-        templateUrl: 'register/register.html',
+        templateUrl: 'auth/register/register.html',
         controller: 'RegisterController'
       })
       .when('/login', {
-        templateUrl: 'login/login.html',
+        templateUrl: 'auth/login/login.html',
         controller: 'LoginController'
       })
       .when('/logout', {

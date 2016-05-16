@@ -8,39 +8,31 @@ function movie_app_two() {
 }
 
 
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Marketing' });
-});
-
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user) {
     if (err) {
-      res.render('login', {title: 'Error', errors: ['Email and/or password incorrect']})
+      res.json({title: 'Error', errors: ['Email and/or password incorrect']})
     } else {
       req.logIn(user, function(err) {
         if (err) {
           return next(err);
         } else {
-          return res.redirect('/');
+          return res.json({status: 'login', user: user});
         }
       });
     }
   })(req, res, next);
 });
 
-router.get('/signup', function(req, res, next) {
-  res.render('signup', { title: 'Marketing' });
-});
-
-router.post('/signup', function(req, res, next) {
+router.post('/register', function(req, res, next) {
   var email = req.body.email;
-  var password = req.body.password;
   var name = req.body.name;
+  var password = req.body.password;
   knex('users').where('email', email)
     .then(function(data){
       // if email is in the database send an error
       if(data.length) {
-        res.render('signup', {title: 'Error', errors: ['Email already exists']})
+        res.json({title: 'Error', errors: ['Email already exists']})
       } else {
         // hash and salt the password
         var hashedPassword = helpers.hashing(password);
@@ -51,14 +43,10 @@ router.post('/signup', function(req, res, next) {
           password: hashedPassword
         })
         .then(function(data) {
-          req.flash('message', {
-            status: 'success',
-            message: 'welcome'
-          });
-          return res.redirect('/login');
+          res.json({message: 'successfully registered, please login!', status: 200})
         })
         .catch(function(err) {
-          return res.send('crap');
+          return res.json('crap');
         });
       }
     })
@@ -69,7 +57,7 @@ router.post('/signup', function(req, res, next) {
 
 router.get('/logout', function(req, res, next) {
   req.logout();
-  res.redirect('/');
+  res.status(200).json({status: 'Bye'});
 });
 
 //save movie to database
@@ -127,7 +115,7 @@ router.get('/showpage/:id', function(req, res, next) {
   });
 })
 
-//delete a single movie 
+//delete a single movie
 router.delete('/showpage/:id', function(req, res, next){
   movie_app_two().where('id', req.params.id).del()
   .then(function(result){

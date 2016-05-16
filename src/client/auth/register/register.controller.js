@@ -11,7 +11,7 @@
         $scope.error = false;
         $scope.disabled = true;
         // call register from service
-        authFactory.register($scope.user.email, $scope.user.password)
+        authFactory.register($scope.user.email, $scope.user.name, $scope.user.password)
           // handle success
           .then(function () {
             console.log('successful register');
