@@ -17,9 +17,9 @@ angular.module('app', ['ngRoute'])
         templateUrl: 'showpage/showpage.html',
         controller: 'ShowpageController'
       })
-      .when('/signup', {
-        templateUrl: 'signup/signup.html',
-        // controller: 'SignupController'
+      .when('/register', {
+        templateUrl: 'register/register.html',
+        controller: 'RegisterController'
       })
       .when('/login', {
         templateUrl: 'login/login.html',
