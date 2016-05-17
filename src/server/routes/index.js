@@ -73,7 +73,7 @@ router.post('/movie', function(req, res, next) {
     rated: req.body.movie.Rated,
     released_date: req.body.movie.Released,
     plot: req.body.movie.Plot,
-    user_id: 1,
+    user_id: req.params.id,
     rating: 1
   }, 'id').then(function(result){
     res.json({

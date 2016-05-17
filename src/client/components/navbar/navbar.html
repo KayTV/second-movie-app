@@ -13,7 +13,7 @@
     <ul class="nav navbar-nav">
         <li><a href="/#/">Home</a></li>
         <li><a href="/#/movie_search">Movie Database</a></li>
-        <li><a href="/#/my_movies">My Movies</a></li>
+        <li ng-if="vm.isAuthenticated()"><a href="/#/my_movies">My Movies</a></li>
       </ul>
     <ul class="nav navbar-nav navbar-right">
         <li ng-if="!vm.isAuthenticated()"><a href="/#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
