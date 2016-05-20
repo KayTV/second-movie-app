@@ -7,6 +7,7 @@
 
       // create user variable
       var user = null;
+      var userid = null;
       var name = null;
       var admin = null;
       // return available functions for use in controllers
@@ -14,6 +15,7 @@
         getUserStatus: getUserStatus,
         getUserName: getUserName,
         getAdminStatus: getAdminStatus,
+        getUserId: getUserId,
         login: login,
         logout: logout,
         register: register
@@ -43,6 +45,14 @@
         }
       }
 
+      function getUserId() {
+        if(user) {
+          return userid;
+        } else {
+          return false;
+        }
+      }
+
       function login(email, password) {
         // create a new instance of deferred
         var deferred = $q.defer();
@@ -53,8 +63,10 @@
             if(status === 200 && data.status){
               console.log('logged in', data);
               user = true;
-              name = data.email;
-              admin = data.admin;
+              userid = data.user.id
+              name = data.user.email;
+              console.log(userid, name);
+              admin = data.user.admin;
               deferred.resolve();
             } else {
               user = false;
@@ -91,14 +103,15 @@
         return deferred.promise;
       }
 
-      function register(email, password) {
+      function register(email, name, password) {
         // create a new instance of deferred
         var deferred = $q.defer();
         // send a post request to the server
-        $http.post('/register', {email: email, password: password})
+        $http.post('/register', {email: email, name: name, password: password})
           // handle success
           .success(function (data, status) {
             console.log('in AuthFactory success', data, status);
+            console.log(name);
             if(status === 200 && data.status){
               login(email, password);
               user = email;

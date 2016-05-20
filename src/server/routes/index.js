@@ -73,7 +73,7 @@ router.post('/movie', function(req, res, next) {
     rated: req.body.movie.Rated,
     released_date: req.body.movie.Released,
     plot: req.body.movie.Plot,
-    user_id: req.params.id,
+    user_id: req.body.user_id,
     rating: 1
   }, 'id').then(function(result){
     res.json({
@@ -101,8 +101,9 @@ router.put('/update-rating/:id', function(req, res, next){
 });
 
 //get all the movies
-router.get('/my_movies', function(req, res, next) {
-  movie_app_two().select()
+router.get('/my_movies/:id', function(req, res, next) {
+  // var user_id = req.params.id;
+  movie_app_two().select().where('user_id', req.params.id)
   .then(function(movies){
     res.json(movies);
   })

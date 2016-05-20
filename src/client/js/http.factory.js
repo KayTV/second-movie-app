@@ -1,5 +1,5 @@
 angular.module('app')
-.factory('httpFactory', ['$http', function($http){
+.factory('httpFactory', ['$http', 'authFactory', function($http, authFactory){
   var factory = {};
   var movieId = null;
 
@@ -12,17 +12,20 @@ angular.module('app')
   };
 
   factory.saveMovie = function(movie) {
+    var user_id = authFactory.getUserId();
     return $http ({
       method: 'POST',
       url: '/movie',
-      data: {movie: movie}
+      data: {movie: movie,
+            user_id: user_id}
     });
   };
 
   factory.getMovies = function() {
+    var userid = authFactory.getUserId();
     return $http({
       method: 'GET',
-      url: '/my_movies'
+      url: '/my_movies/'+userid
     });
   };
 
