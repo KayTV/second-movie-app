@@ -1,6 +1,8 @@
 angular.module('app')
-.controller('MovieSearchController', ['$scope', 'httpFactory', function($scope, httpFactory){
+.controller('MovieSearchController', ['$scope', 'httpFactory', 'authFactory', function($scope, httpFactory, authFactory){
   $scope.title = 'Movie Database';
+
+  $scope.user = authFactory.getUserStatus();
 
   $scope.getOMDB = function() {
     httpFactory.getOMDB($scope.movieTitle)
