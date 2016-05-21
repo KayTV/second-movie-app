@@ -14,8 +14,16 @@
     <div star-rating ng-model="movie.rating"></div>
     <form method="post">
       <button ng-click="deleteMovie(movie.id)" class="btn btn-md submitbutton">Delete Movie</button>
-      <button class="btn btn-md submitbutton">Add Comment</button>
+      <button class="btn btn-md submitbutton" ng-click="show=!show">Add Comment</button>
     </form>
+    <div ng-show="show">
+        <h4>Add Comment to {{movie.title}}!</h4>
+        <form class="form" ng-submit="sendMsg()">
+          <textarea class="form-control" rows="5" placeholder="Comment Here"></textarea>
+          <br>
+          <button class="btn btn-md submitbutton">Add</button>
+        </form>
+    </div>
   </div>
 
 </div>
