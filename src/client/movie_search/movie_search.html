@@ -7,7 +7,7 @@
   <section>
     <input type="text" ng-model="movieTitle" class="form-control" style="width: 50%; margin-left: 25%;" placeholder="Search By Movie Title"><br>
     <button class="btn btn-md submitbutton" ng-click="getOMDB()">Search</button>
-    <button class="btn btn-md submitbutton" ng-click="saveMovie(); showDiv=true" ng-if="user">Save Movie</button>
+    <button class="btn btn-md submitbutton" ng-click="saveMovie(); showDiv=true" ng-show="user">Save Movie</button>
     <div ng-show="showDiv">
       <h5>Movie was saved to database!</h5>
     </div>
