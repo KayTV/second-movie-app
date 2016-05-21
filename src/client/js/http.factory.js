@@ -21,6 +21,22 @@ angular.module('app')
     });
   };
 
+  factory.addComment = function(id, comment) {
+    return $http ({
+      method: 'POST',
+      url: '/comments',
+      data: {comment: comment,
+              id: id}
+    });
+  };
+
+  // factory.getComments = function() {
+  //   return $http ({
+  //     method: 'GET',
+  //     url: '/get_comments'
+  //   });
+  // };
+
   factory.getMovies = function() {
     var userid = authFactory.getUserId();
     return $http({

@@ -12,17 +12,20 @@
     <h3>Plot: </h3>
     <h4>{{movie.plot}}</h4>
     <div star-rating ng-model="movie.rating"></div>
-    <form method="post">
+    <form>
       <button ng-click="deleteMovie(movie.id)" class="btn btn-md submitbutton">Delete Movie</button>
       <button class="btn btn-md submitbutton" ng-click="show=!show">Add Comment</button>
     </form>
     <div ng-show="show">
         <h4>Add Comment to {{movie.title}}!</h4>
-        <form class="form" ng-submit="sendMsg()">
-          <textarea class="form-control" rows="5" placeholder="Comment Here"></textarea>
+        <form>
+          <textarea class="form-control" rows="5" placeholder="Comment Here" ng-model="comment"></textarea>
           <br>
-          <button class="btn btn-md submitbutton">Add</button>
+          <button class="btn btn-md submitbutton" ng-click="addComment(movie.id)">Add</button>
         </form>
+    </div>
+    <div ng-repeat="comment in comments" class="commentbox">
+      <h4>{{comment.comment}}</h4>
     </div>
   </div>
 

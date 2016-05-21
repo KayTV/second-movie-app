@@ -5,7 +5,11 @@ var passport = require('../lib/auth');
 var helpers = require('../lib/helpers');
 function movie_app_two() {
   return knex('movies');
-}
+};
+
+function Comments() {
+  return knex('comments');
+};
 
 
 router.post('/login', function(req, res, next) {
@@ -86,6 +90,31 @@ router.post('/movie', function(req, res, next) {
   })
 })
 
+//add comment to database
+router.post('/comments', function(req, res, next) {
+  console.log('comment', req.body);
+  Comments().insert({
+    comment: req.body.comment,
+    movie_id: req.body.id
+  }, 'id').then(function(result){
+    res.json({
+      status: 200,
+      message: 'added comment'
+    });
+  })
+  .catch(function(err){
+    console.log('error', err);
+  })
+});
+
+//get all the comments
+// router.get('/get_comments', function(req, res, next) {
+//   Comments().select().where('movie_id', req.params.id)
+//   .then(function(comments){
+//     res.json(comments);
+//   })
+// })
+
 //update movie rating
 router.put('/update-rating/:id', function(req, res, next){
   console.log('body', req.body);
@@ -105,14 +134,18 @@ router.get('/my_movies/:id', function(req, res, next) {
   // var user_id = req.params.id;
   movie_app_two().select().where('user_id', req.params.id)
   .then(function(movies){
-    res.json(movies);
+    res.json(movies)
   })
 })
 
 //get a single movie
 router.get('/showpage/:id', function(req, res, next) {
-  movie_app_two().where('id', req.params.id).first().then(function(movie){
-    res.json(movie);
+  movie_app_two().where('id', req.params.id).first()
+  .then(function(movie){
+    Comments().select().where('movie_id', req.params.id)
+    .then(function(comments){
+      res.json({movie: movie, comments: comments});
+    })
   });
 })
 

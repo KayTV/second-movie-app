@@ -16,6 +16,16 @@ header {
   text-shadow: 2px 2px grey;
 }
 
+.commentbox {
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 3px 3px maroon;
+  margin: 5px;
+  height: 150px;
+  overflow: scroll;
+  background-color: rgba(78, 76, 76, 0.3);
+}
+
 .navbar {
     margin-bottom: 0;
     background-color: #2d2d30;
